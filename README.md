@@ -21,10 +21,10 @@ year = "2017",
 | Dataset       | Modality1     |Modality2    | Segmented Image|
 | ------------- | ------------- |-------------|-------------   |
 | Cityscapes    |<img src="images/city.png" width=350> | <img src="images/city_hha.png" width=350> | <img src="images/city_pred.png" width=350>|
-| Forest  | <img src="images/forest.png" width=350>  | <img src="images/forest_evi.png" width=350>  |<img src="images/forest_pred.png" width=350> |
+| Forest  | <img src="images/forest.png" width=350>  | <img src="images/forest_evi.png" width=350>  |<img src="images/forest_prediction.png" width=350> |
 | SunRGB-D  | <img src="images/sun.png" width=350>  |<img src="images/sun_hha.png" width=350>  | <img src="images/sun_pred.png" width=350>|
 | Synthia  | <img src="images/synthia.png" width=350>  |<img src="images/synthia_jet.png" width=350>  | <img src="images/synthia_pred.png" width=350> |
-| Scannet v2  | <img src="images/scannet.png" width=350>  |<img src="images/scannet_pred.png" width=350>  |<img src="images/scannet_pred.png" width=350> |
+| Scannet v2  | <img src="images/scannet.png" width=350>  |<img src="images/scannet_hha.png" width=350>  |<img src="images/scannet_pred.png" width=350> |
 
 
 ## System requirement
@@ -98,8 +98,7 @@ Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) models f
 
 #### Please refer our [paper](https://arxiv.org/pdf/1808.03833.pdf) for:
      prepartion of dataset for each modality and its expert model training.
-#### Please refer our [paper](http://ais.informatik.uni-freiburg.de/publications/papers/valada17icra.pdf) for:
-     architecutre of CMoDE fusion.
+
 ## Training and Evaluation
 
 #### Start training
