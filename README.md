@@ -111,24 +111,24 @@ First train individual [AdapNet](https://github.com/DeepSceneSeg/AdapNet) or [Ad
 
 ## Training and Evaluation
 
-#### Training
+#### Training Procedure
 Edit the config file for training in config folder.
 Run:
 ```
 python train.py -c config cityscapes_train.config or python train.py --config cityscapes_train.config
 ```
 
-#### Evaluation
+#### Evaluation Procedure
 
 Select a checkpoint to test/validate your model in terms of the mean IoU.
-Create the config file for evaluation in the config folder.
+Edit the config file for evaluation in the config folder.
 
 ```
 python evaluate.py -c config cityscapes_test.config or python evaluate.py --config cityscapes_test.config
 ```
 
 ## Additional Notes:
-   * We provide the CMoDE fusion implementation for either AdapNet or AdapNet++ as the expert network architecture. You can swap the expert network with any architecture of your choosing by modifying models/CMoDE.py script.
+   * We provide the CMoDE fusion implementation for either AdapNet or AdapNet++ as the expert network architecture. You can swap the expert network with any architecture of your choice by modifying the models/CMoDE.py script.
    * We only provide the single scale evaluation script. Multi-Scale+Flip evaluation further imporves the performance of the model.
    * The code in this repository only performs training on a single GPU. Multi-GPU training using synchronized batch normalization with larger batch size further improves the performance of the model.
    * Initializing the model with pre-trained weights from large datasets such as the Mapillary Vistas and BDD100K yields an improved performance.
