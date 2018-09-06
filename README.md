@@ -39,7 +39,7 @@ tensorflow-gpu 1.4.0
 ```
 ## Configure the network
 
-Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) models for modality 1 and modality 2 for network intialization
+Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) or [AdapNet](https://github.com/DeepSceneSeg/AdapNet)  model for modality 1 and modality 2 for network intialization
 
 #### Data
 
@@ -67,6 +67,7 @@ Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) models f
 ```
     gpu_id: id of gpu to be used
     model: name of the model
+    mode: AdapNet or AdapNet_pp
     num_classes: number of classes
     checkpoint1:  path to pre-trained model for modality 1 (rgb)
     checkpoint2:  path to pre-trained model for modality 2 (jet,hha,evi)
@@ -86,6 +87,7 @@ Use pre-trained [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) models f
 ```
     gpu_id: id of gpu to be used
     model: name of the model
+    mode: AdapNet or AdapNet_pp
     num_classes: number of classes
     checkpoint: path to saved model
     test_data: path to dataset .tfrecords
@@ -119,7 +121,7 @@ python evaluate.py -c config cityscapes_test.config or python evaluate.py --conf
 ```
 
 ## Additional Notes:
-   * We provide CMoDE fusion implementation for AdapNet++ as the expert network. You can swap Adapnet++ with any network of your choosing by modifying models/CMoDE.py script.
+   * We provide CMoDE fusion implementation for AdapNet++ and AdapNet as the expert network. You can use any expert network of your choosing by modifying models/CMoDE.py script.
    * We provide only single scale evaluation script. Multi-Scales+Flip evaluation will further imporve the model's performance.
    * We provide only single gpu training script. Training on multiple gpus using synchronized batch normalization with larger batch size will furthur improve the model's performance.
 
