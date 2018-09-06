@@ -107,7 +107,7 @@ First train individual [AdapNet](https://github.com/DeepSceneSeg/AdapNet) or [Ad
     width: width of input image
 ```
 
-#### Please refer our [paper](https://arxiv.org/pdf/1808.03833.pdf) for the dataset preparation procedure for each modality and the training protocol to be employed.
+#### Please refer our [paper](http://ais.informatik.uni-freiburg.de/publications/papers/valada17icra.pdf) for the dataset preparation procedure for each modality and the training protocol to be employed.
 
 ## Training and Evaluation
 
