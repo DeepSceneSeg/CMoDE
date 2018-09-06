@@ -35,7 +35,7 @@ def train_func(config):
     global_step=tf.Variable(0,trainable=False,name='global_step')
    
     
-    model = model_func(num_classes=config['num_classes'],learning_rate=config['learning_rate'],decay_steps=config['max_iteration'],power=config['power'],global_step=global_step)
+    model = model_func(num_classes=config['num_classes'],learning_rate=config['learning_rate'],decay_steps=config['max_iteration'],power=config['power'],global_step=global_step,mode=config['mode'])
     images_pl = tf.placeholder(tf.float32, [None, config['height'],config['width'], 3])
     images_pl1 = tf.placeholder(tf.float32, [None, config['height'],config['width'], 3])
     labels_pl = tf.placeholder(tf.float32, [None, config['height'],config['width'], config['num_classes']])

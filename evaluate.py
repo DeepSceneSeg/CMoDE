@@ -31,7 +31,7 @@ def test_func(config):
     module = importlib.import_module('models.'+config['model'])
     model_func = getattr(module,config['model'])     
     data_list, iterator = get_test_data(config)
-    model = model_func(num_classes=config['num_classes'],training=False)
+    model = model_func(num_classes=config['num_classes'],training=False,mode=config['mode'])
     images_pl = tf.placeholder(tf.float32, [None, config['height'],config['width'], 3])
     images1_pl = tf.placeholder(tf.float32, [None, config['height'],config['width'], 3])
     logits = model.build_graph(images_pl,images1_pl)

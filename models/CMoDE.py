@@ -18,13 +18,19 @@ import tensorflow as tf
 import numpy as np
 import network_base
 from AdapNet_pp import AdapNet_pp
+from AdapNet import AdapNet
 class CMoDE(network_base.Network):
     def __init__(self,num_classes=12,learning_rate=0.001,float_type=tf.float32,weight_decay=0.0005,
                  decay_steps=30000,power=0.9,training=True,ignore_label=True,global_step=0,
-                 has_aux_loss=False,expert_not_fixed=False):
+                 has_aux_loss=False,expert_not_fixed=False,mode='AdapNet_pp'):
         super(CMoDE, self).__init__()
-        self.model1=AdapNet_pp(training=expert_not_fixed,num_classes=num_classes) 
-        self.model2=AdapNet_pp(training=expert_not_fixed,num_classes=num_classes) 
+        if mode=='AdapNet_pp':
+           self.model1=AdapNet_pp(training=expert_not_fixed,num_classes=num_classes) 
+           self.model2=AdapNet_pp(training=expert_not_fixed,num_classes=num_classes) 
+        else:
+           self.model1=AdapNet(training=expert_not_fixed,num_classes=num_classes) 
+           self.model2=AdapNet(training=expert_not_fixed,num_classes=num_classes) 
+        self.mode=mode
         self.num_classes=num_classes
         self.learning_rate =learning_rate
         self.weight_decay=weight_decay
@@ -53,7 +59,10 @@ class CMoDE(network_base.Network):
         
         
     def _setup(self):   
-        self.in1=tf.concat([self.model1.eAspp_out,self.model2.eAspp_out],3)
+        if self.mode=='AdapNet_pp':
+           self.in1=tf.concat([self.model1.eAspp_out,self.model2.eAspp_out],3)
+        else:
+           self.in1=tf.concat([self.model1.m_b4_out,self.model2.m_b4_out],3)
         count=511
         out=[]
         out1=[]
