@@ -6,12 +6,20 @@ This repository contains our TensorFlow implementation of CMoDE which allows you
 If you find the code useful for your research, please consider citing our paper:
 ```
 @inproceedings{valada2017icra,
-author = {Valada, Abhinav and Vertens, Johan and Dhall, Ankit and Burgard, Wolfram},
-title = {AdapNet: Adaptive Semantic Segmentation in Adverse Environmental Conditions},
-booktitle = {Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)},
-pages={4644--4651},
-year = {2017},
-organization={IEEE}
+  author = {Valada, Abhinav and Vertens, Johan and Dhall, Ankit and Burgard, Wolfram},
+  title = {AdapNet: Adaptive Semantic Segmentation in Adverse Environmental Conditions},
+  booktitle = {Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={4644--4651},
+  year = {2017},
+  organization={IEEE}
+}
+```
+```
+@inproceedings{valada2016irosws,
+  author={Valada, Abhinav and Dhall, Ankit and Burgard, Wolfram},
+  title={Convoluted Mixture of Deep Experts for Robust Semantic Segmentation},
+  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) Workshop, State Estimation and Terrain Perception for All Terrain Mobile Robots},
+  year={2016}
 }
 ```
 ## Live Demo
@@ -48,7 +56,7 @@ First train individual [AdapNet](https://github.com/DeepSceneSeg/AdapNet) or [Ad
 #### Data
 
 * Augment the training data.
-  In our work, we first resized the images in the dataset to 768x384 pixels and then apply a series of augmentations (random_flip, random_scale and random_crop). The image corresonding to each modality and the label should be augmented together the same parameters.
+  In our work, we first resized the images in the dataset to 768x384 pixels and then apply a series of augmentations (random_flip, random_scale and random_crop). The image corresonding to each modality and the label should be augmented together using the same parameters.
 
 * Convert the training data (augmented), test data and validation data into the .tfrecords format.
   Create a .txt file for each set having entries in the following format:
@@ -121,7 +129,7 @@ python evaluate.py -c config cityscapes_test.config or python evaluate.py --conf
 ## Additional Notes:
    * We provide the CMoDE fusion implementation for either AdapNet or AdapNet++ as the expert network architecture. You can swap the expert network with any architecture of your choosing by modifying models/CMoDE.py script.
    * We only provide the single scale evaluation script. Multi-Scale+Flip evaluation further imporves the performance of the model.
-   * The code in this repository only performs training on a single GPU. Multi-GPU training using synchronized batch normalization with larger batch size furthur improves the performance of the model.
+   * The code in this repository only performs training on a single GPU. Multi-GPU training using synchronized batch normalization with larger batch size further improves the performance of the model.
    * Initializing the model with pre-trained weights from large datasets such as the Mapillary Vistas and BDD100K yields an improved performance.
    
 ## License
