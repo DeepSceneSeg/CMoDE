@@ -22,6 +22,7 @@ If you find the code useful for your research, please consider citing our paper:
   year={2016}
 }
 ```
+
 ## Live Demo
 http://deepscene.cs.uni-freiburg.de
 
@@ -45,10 +46,12 @@ http://deepscene.cs.uni-freiburg.de
 ```
 Python 2.7
 ```
+
 #### Python Packages
 ```
 tensorflow-gpu 1.4.0
 ```
+
 ## Configure the Network
 
 First train individual [AdapNet](https://github.com/DeepSceneSeg/AdapNet) or [AdapNet++](https://github.com/DeepSceneSeg/AdapNet-pp) model for modality 1 and modality 2 in the dataset. We will use this pre-trained modality-secific models for initializing our CMoDE network.
@@ -72,7 +75,7 @@ First train individual [AdapNet](https://github.com/DeepSceneSeg/AdapNet) or [Ad
   ```
   (Input to model is in BGR and 'NHWC' form)
 
-#### Training
+#### Training Params
 ```
     gpu_id: id of gpu to be used
     model: name of the model
@@ -88,10 +91,10 @@ First train individual [AdapNet](https://github.com/DeepSceneSeg/AdapNet) or [Ad
     max_iteration: how many iterations to train
     learning_rate: initial learning rate
     save_step: how many steps to save the model
-    power: parameter for poly learning rate
-    
+    power: parameter for poly learning rate    
 ```
-#### Evaluation
+
+#### Evaluation Params
 ```
     gpu_id: id of gpu to be used
     model: name of the model
@@ -102,7 +105,6 @@ First train individual [AdapNet](https://github.com/DeepSceneSeg/AdapNet) or [Ad
     skip_step: how many steps to print mIoU
     height: height of input image
     width: width of input image
-    
 ```
 
 #### Please refer our [paper](https://arxiv.org/pdf/1808.03833.pdf) for the dataset preparation procedure for each modality and the training protocol to be employed.
@@ -114,7 +116,6 @@ Edit the config file for training in config folder.
 Run:
 ```
 python train.py -c config cityscapes_train.config or python train.py --config cityscapes_train.config
-
 ```
 
 #### Evaluation
