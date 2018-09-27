@@ -75,8 +75,8 @@ def train_func(config):
             print 'varaibles_loaded:', len(initialize_variables.keys())   
             saver = tf.train.Saver(initialize_variables)
             saver.restore(save_path=modalities[modality], sess=sess)
-        saver = tf.train.Saver(max_to_keep=1000)
-        model.create_optimizer()  
+        model.create_optimizer()
+        saver = tf.train.Saver(max_to_keep=1000) 
         print 'Initialized'
     while 1:
         try: 
