@@ -101,7 +101,19 @@ class CMoDE(network_base.Network):
         self._setup()
         if self.training:
             self._create_loss(label)
+            
+    def spatial_dropout(self,x, keep_prob):
+        num_feature_maps = [tf.shape(x)[0], tf.shape(x)[3]]
+        random_tensor = keep_prob
+        random_tensor += tf.random_uniform(num_feature_maps,
+                                       dtype=x.dtype)
+        binary_tensor = tf.floor(random_tensor)
+        binary_tensor = tf.reshape(binary_tensor, 
+                               [-1, 1, 1, tf.shape(x)[3]])
+        ret = tf.div(x, keep_prob) * binary_tensor
+        return ret
 
+     
 def main():
     print 'Do Nothing'
 
